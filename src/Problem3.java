@@ -11,27 +11,18 @@ public class Problem3 {
         long prime = 0L;
         ArrayList<Integer> list = new ArrayList<Integer>();
 
-
         for (int i = 1; i < number; i++) {
             list.add(i);
             if (isPrime(list, i))
                 prime = i;
-
         }
-
-
         System.out.println(prime);
-
-
     }
 
     public static boolean isPrime(ArrayList<Integer> list, int a) {
-
         for (int b : list)
             if (a % b == 0)
                 return false;
         return true;
-
     }
-
 }

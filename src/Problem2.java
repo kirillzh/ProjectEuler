@@ -14,7 +14,6 @@ public class Problem2 {
             current += prev;
             prev = current;
         }
-
         System.out.println(sum);
     }
 }
