@@ -4,14 +4,15 @@
  * What is the largest prime factor of the number 600851475143 ?
  */
 
+import java.util.LinkedList;
+
 /**
- *
  * The first idea: simple brute force. Won't work. 600851475143 is way too big number, takes A LOT of time to compile
- *
+ * <p/>
  * The second Idea: start from smallest prime number, divide given number by this prime number as long as it is evenly divisible
  * find larger prime number by which we can evenly divide given number again and again
  * the last possible prime number which gives us evenly divisible number will be an answer
- *
+ * <p/>
  * Example: given 72765 number
  * 1. divide by smallest prime number 3: 72765 / 3 = 24255
  * 2. divide again 24255 / 3 = 8085
@@ -28,7 +29,34 @@
 
 public class Problem3 {
 
+    public static void main(String[] args) {
 
+        final long givenNumber = 600851475143L;
+        long remainder = givenNumber;
+
+        LinkedList<Long> primeNumbers = new LinkedList<Long>();
+        primeNumbers.add(1L);
+        long currentPrime = primeNumbers.getLast();
+
+        while (remainder > 1) {
+            currentPrime = nextPrime(currentPrime);
+            if (remainder % currentPrime == 0)
+                remainder /= currentPrime;
+        }
+        System.out.println(currentPrime);
+
+    }
+
+    public static boolean isPrime(long n) {
+        for (long i = 2; i < n; i++)
+            if (n % i == 0) return false;
+        return true;
+    }
+
+    public static long nextPrime(long n) {
+        for (long i = n + 1; ; i++) {
+            if (isPrime(i)) return i;
+        }
+    }
 
 }
-
