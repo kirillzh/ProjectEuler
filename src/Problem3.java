@@ -23,6 +23,8 @@
  * 9. since 11 % 7 != 0, let's try next prime number: 11 / 11 = 1
  * 10. eventually we should stop on 1, and 11 is the largest prime number
  * 72765 = 3*3*3*5*7*7*11
+ * <p/>
+ * The third idea: trial division -_-
  */
 
 public class Problem3 {
