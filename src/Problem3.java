@@ -4,8 +4,6 @@
  * What is the largest prime factor of the number 600851475143 ?
  */
 
-import java.util.LinkedList;
-
 /**
  * The first idea: simple brute force. Won't work. 600851475143 is way too big number, takes A LOT of time to compile
  * <p/>
@@ -31,17 +29,13 @@ public class Problem3 {
 
     public static void main(String[] args) {
 
-        final long givenNumber = 600851475143L;
-        long remainder = givenNumber;
+        long givenNumber = 600851475143L;
+        long currentPrime = 1;
 
-        LinkedList<Long> primeNumbers = new LinkedList<Long>();
-        primeNumbers.add(1L);
-        long currentPrime = primeNumbers.getLast();
-
-        while (remainder > 1) {
+        while (givenNumber > 1) {
             currentPrime = nextPrime(currentPrime);
-            if (remainder % currentPrime == 0)
-                remainder /= currentPrime;
+            if (givenNumber % currentPrime == 0)
+                givenNumber /= currentPrime;
         }
         System.out.println(currentPrime);
 
